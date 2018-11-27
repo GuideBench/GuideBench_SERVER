@@ -1,6 +1,7 @@
 const qna = require('../../schemas/qna')
 const user = require('../../schemas/user')
 
+// Q&A 질문하기
 exports.question = async (req) => {
   const { title, content } = req.body
   const { _id }  = req.headers
@@ -33,27 +34,18 @@ exports.question = async (req) => {
 //   })
 // }
 
+// Q&A 답변달기
 exports.answer = async (req) => {
-  const { title, content, name } = req.body
-  let data
-  const duplicated = await qna.create({
-    user_content: content,
-  })
-  if (!duplicated[0]) {
-    await qna.create({
-        qna_title: title,
-        qna_content: content,
-        qna_name: name
-    })
-    data = {
-      message: '등록성공',
-    }
+  const { content } = req.body
+  const { _id } = req.params // question 의 유니크한 id 값
 
-  } else {
-    data = {
-      message: '이미 존재하는 질문입니다',
-    }
-    return data
-  }
- return data
+    await qna.update(
+      { _id : _id},
+      {
+        $set : {
+          answer_content : content
+        }
+      }
+    )
+    console.log('입력됨')
 }

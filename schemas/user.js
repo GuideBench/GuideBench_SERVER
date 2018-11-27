@@ -15,6 +15,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   }
+},{
+  versionKey : false
 })
 
 // 몽구스는 model 메서드의 첫 번째 인자로 컬렉션 이름을 만듭니다.

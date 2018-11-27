@@ -8,7 +8,7 @@ const qna = Router()
 qna.post('/question', qnaCtrl.question)
 // user.post('/경로/:user_idx', userCtrl.넘길함수)
 // -> /:user_idx는 url로 받는 parameter, 특정 사용자에대한 정보만 가져와야할때 해당 사용자만의 고유 인덱스값을 받아 쿼리문에 넣어 해당 사용자의 정보만 가져올 때 사용한다.
-qna.post('/answer', qnaCtrl.answer)
+qna.post('/answer/:_id', qnaCtrl.answer)
 
 // post -> db에 데이터를 입력할때 사용하는 메소드, ex) 회원가입시 사용자가 입력한 id,pw가 데이터베이스에 저장된다!
 // get -> db에 있는 데이터를 가져와 사용자에게 보여줄때, ex) 게시판에 들어갔을때 사용자에게 보여질 게시글목록들을 db에서 가져온다!

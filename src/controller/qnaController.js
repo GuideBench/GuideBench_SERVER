@@ -25,12 +25,15 @@ exports.question = async (req, res) => {
 
 exports.answer = async (req, res) => {
   try {
-    const result = await qnaService.answer(req)
-    if (result.message === '이미 존재하는 질문입니다') {
-      response.respondJson2('Already Exists', res, 403)
-    } else {
-      response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) 
-    }
+    const { content } = req.body
+    if(!content) {
+      response.respondOnError('모두 입력해주세요.', res, 400)
+    } 
+  
+      await qnaService.answer(req) 
+   
+      response.respondJson2('답변이 성공적으로 등록되었습니다', res, 201) 
+    
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
   }

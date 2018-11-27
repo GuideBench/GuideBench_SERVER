@@ -14,11 +14,11 @@ exports.question = async (req) => {
 }
 
 exports.answer = async (req) => {
-  let result
+  
   try {
-    result = await qnaDao.answer(req) // fist parameter : db connection, second parameter : req method
+     await qnaDao.answer(req) 
   } catch (e) {
     console.log(e.message)
   }
-  return result
+  
 }
