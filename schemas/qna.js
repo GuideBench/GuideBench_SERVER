@@ -3,18 +3,24 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const qnaSchema = new Schema({
-  qna_title: {
+  question_title: {
     type: String,
     required: true,
   },
-  qna_content: {
+  question_content: {
     type: String,
     required: true,
   },
-  qna_name: {
+  question_name: {
     type: String,
     required: true,
-  }
+  },
+  answer_content : {
+    type : String,
+    default : null
+  },
+},{
+  versionKey : false
 })
 
 

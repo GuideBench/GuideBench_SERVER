@@ -6,21 +6,33 @@ const response = require('../lib/response')
 const qnaService = require('../service/qnaService') // user에 관련된 api의 비즈니스 로직을 처리할 js 파일
 
 
-// 회원가입 라우팅을 타고 들어오는 곳, 현재 여기까지 루트 정리
-// 1. 클라이언트에서 해당 url로 request가 들어옴
-// 2. src/routes/index.js파일로 들어감. 여기서 routes/user.js로 분기처림
-// 3. routes/user.js에서 controller/userController.js의 signUp 함수 호출
+
 exports.question = async (req, res) => {
   try {
-    const result = await qnaService.question(req) // 위에 선언한 userService 파일의 signup 함수의 리턴값이 올때까지 기다림
-    if (result.message === '이미 존재하는 질문입니다') {
-      response.respondJson2('Already Exists', res, 403)
-    } else {
-      response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) // 첫번째 인자는 응답할 message, 두번째 인자는 res (응답 오브젝트에 대한 메소드), 세번째 인자는 status code
-    }
+    const { title, content } = req.body
+    if(!title || !content ) {
+      response.respondOnError('모두 입력해주세요.', res, 400)
+    } 
+  
+      await qnaService.question(req) 
+   
+      response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) 
+    
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
   }
 }
 
+exports.answer = async (req, res) => {
+  try {
+    const result = await qnaService.answer(req)
+    if (result.message === '이미 존재하는 질문입니다') {
+      response.respondJson2('Already Exists', res, 403)
+    } else {
+      response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) 
+    }
+  } catch (e) {
+    response.respondOnError('Internal Server error', res, 500)
+  }
+}
 
