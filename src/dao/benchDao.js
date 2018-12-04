@@ -18,15 +18,14 @@ console.log('success')
 exports.postInfo = async (req) => {
   const { benchinfo_category, benchinfo_name, benchinfo_address  } = req.body
   const { bench_id } = req.params // question 의 유니크한 id 값
-
     await bench.update(
       { _id : bench_id},
       {
-       bench_info : {
-          $push : {
-            benchinfo_category : benchinfo_category,
-            benchinfo_name : benchinfo_name,
-            benchinfo_address : benchinfo_address
+          $addToSet : {
+            bench_info : {
+              benchinfo_category : benchinfo_category,
+              benchinfo_name : benchinfo_name,
+              benchinfo_address : benchinfo_address
           }
         } 
       }

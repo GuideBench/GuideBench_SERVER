@@ -29,7 +29,7 @@ exports.postInfo = async (req, res) => {
     } 
   
       await benchService.postInfo(req) 
-   
+  
       response.respondJson2('벤치의 정보가 성공적으로 등록되었습니다', res, 201) 
     
   } catch (e) {
