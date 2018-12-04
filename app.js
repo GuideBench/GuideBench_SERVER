@@ -6,7 +6,7 @@ const logger = require('morgan')
 
 const indexRouter = require('./src/routes/index')
 const connect = require('./config/mongoose') // config 폴더의 몽구스 가져오기!
-var CORS = require('cors')();
+const CORS = require('cors')
  
 // 마찬가지로 app.use(router)전에 삽입한다
 
@@ -17,7 +17,7 @@ connect() // 서버가 시작되는 순간 몽구스도 시작시키기! (몽고
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
-app.use(CORS);
+app.use(CORS());
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

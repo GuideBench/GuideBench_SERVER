@@ -23,7 +23,7 @@ exports.postInfo = async (req) => {
       { _id : bench_id},
       {
        bench_info : {
-          $addToSet : {
+          $push : {
             benchinfo_category : benchinfo_category,
             benchinfo_name : benchinfo_name,
             benchinfo_address : benchinfo_address
