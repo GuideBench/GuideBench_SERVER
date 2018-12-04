@@ -7,15 +7,27 @@ const benchSchema = new Schema({
     type: String,
     required: true,
   },
-  bench_location: {
+  bench_latitude: {
     type: String,
     required: true,
   },
-  bench_food: {
+  bench_longitude: {
     type: String,
     required: true,
   },
-  bench_market: {
+  bench_address: {
+    type: String,
+    required: true,
+  },
+  benchinfo_where: {
+    type: String,
+    required: true,
+  },
+  benchinfo_wherename: {
+    type: String,
+    required: true,
+  },
+  benchinfo_whereaddress: {
     type: String,
     required: true,
   },

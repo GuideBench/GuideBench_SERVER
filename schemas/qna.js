@@ -21,7 +21,7 @@ const qnaSchema = new Schema({
   // },
   answer_content : {
     type : String,
-    default : null
+    default : null,
   },
 },
  {
