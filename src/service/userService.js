@@ -27,7 +27,7 @@ exports.signIn = async (req) => {
 exports.getuser = async (req) => {
   let result
   try {
-    result = await userDao.userqna(req) // fist parameter : db connection, second parameter : req method
+    result = await userDao.getuser(req) // fist parameter : db connection, second parameter : req method
     // result => 몽고디비에서 찾은 데이터 값을 담은 변수
   } catch (e) {
     console.log(e.message)

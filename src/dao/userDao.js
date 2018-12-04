@@ -47,11 +47,9 @@ exports.signIn = async (req) => {
 }
 
 exports.getuser = async (req) => {
-  // -> 예전 문법 
+ const id = req.headers._id
  const result = await user.find({
-    user_id: id,
-    user_pw: pw,
-    user_name: name,
+    _id: id,
  })
  return result[0]
 }
