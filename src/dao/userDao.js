@@ -45,3 +45,11 @@ exports.signIn = async (req) => {
   })
   return result[0]
 }
+
+exports.getuser = async (req) => {
+ const id = req.headers._id
+ const result = await user.find({
+    _id: id,
+ })
+ return result[0]
+}

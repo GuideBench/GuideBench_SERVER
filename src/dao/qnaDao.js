@@ -7,7 +7,7 @@ exports.question = async (req) => {
   const { _id }  = req.headers
 // 로그인한 사람 고유값인 _id를 클라한테 req.headers._id로 요청해서 그사람의 이름값을 받아와서 이름칸에 넣음
     const user_data = await user.find({
-        _id : _id
+        _id : _id  // _id = req.headers_id
     })
     console.log()
    const name = user_data[0].user_name
