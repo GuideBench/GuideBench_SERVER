@@ -25,6 +25,7 @@ exports.signUp = async (req, res) => {
 }
 
 exports.signIn = async (req, res) => {
+  console.log(req.body.id+""+req.body.pw);
   try {
     const signIn = await userService.signIn(req)
     if (!signIn) {
@@ -36,3 +37,4 @@ exports.signIn = async (req, res) => {
     response.respondOnError('서버 내부 에러', res, 500)
   }
 }
+

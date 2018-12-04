@@ -1,6 +1,6 @@
 const event = require('../../schemas/event')
 
-/// 회원가입
+// 이벤트
 exports.event = async (req) => {
   // const id = req.body.id // req.body는 클라이언트(사용자)가 입력한 데이터를 받아오는 곳 console.log(req.body)찍어보면 클라이언트쪽에서 어떤 데이터를 보냈는지 콘솔로 확인할 수 있어요!
   // const pw = req.body.pw // -> 예전 문법
@@ -30,3 +30,16 @@ exports.event = async (req) => {
  return data
 }
 
+//  exports.getqna = async (req) => {
+//   const result = await qna.find({})
+//   return result[0]
+//  }
+exports.getevent = async (req) => {
+   // -> 예전 문법 
+  const result = await event.find({
+    event_title: title,//z컬렉션에 들어가있는 key값
+    event_content: content,
+    
+  })
+  return result[0]
+}
