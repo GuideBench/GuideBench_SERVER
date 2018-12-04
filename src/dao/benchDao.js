@@ -15,28 +15,21 @@ await bench.create({
 console.log('success')
 }
 // Q&A 답변달기
-exports.answer = async (req) => {
-  const { content } = req.body
-  const { _id } = req.params // question 의 유니크한 id 값
-
-    await qna.update(
-      { _id : _id},
+exports.postInfo = async (req) => {
+  const { benchinfo_category, benchinfo_name, benchinfo_address  } = req.body
+  const { bench_id } = req.params // question 의 유니크한 id 값
+    await bench.update(
+      { _id : bench_id},
       {
-        $set : {
-          answer_content : content
-        }
+          $addToSet : {
+            bench_info : {
+              benchinfo_category : benchinfo_category,
+              benchinfo_name : benchinfo_name,
+              benchinfo_address : benchinfo_address
+          }
+        } 
       }
     )
-    console.log('입력됨')
+    console.log('success')
 }
 
-exports.getqna = async (req) => {
-  // -> 예전 문법 
- const result = await qna.find({
-   qna_title: title,//z컬렉션에 들어가있는 key값
-   qna_content: content,
-   qna_name: name,
-   answer_content: content,
- })
- return result[0]
-}
