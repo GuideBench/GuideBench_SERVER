@@ -5,14 +5,14 @@ const benchService = require('../service/benchService') // user에 관련된 api
 
 
 
-exports.bench = async (req, res) => {
+exports.postBench = async (req, res) => {
   try {
     const { name, latitude, longitude, address } = req.body
     if(!name || !latitude || !longitude || !address  ) {
       response.respondOnError('모두 입력해주세요.', res, 400)
     } 
   
-      await benchService.bench(req) 
+      await benchService.postBench(req) 
    
       response.respondJson2('벤치가 성공적으로 등록되었습니다', res, 201) 
     

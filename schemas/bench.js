@@ -19,18 +19,21 @@ const benchSchema = new Schema({
     type: String,
     required: true,
   },
-  benchinfo_where: {
-    type: String,
-    required: true,
-  },
-  benchinfo_wherename: {
-    type: String,
-    required: true,
-  },
-  benchinfo_whereaddress: {
-    type: String,
-    required: true,
-  },
+  bench_info :[{
+    benchinfo_category: {
+      type: String,
+      default : null
+    },
+    benchinfo_name: {
+      type: String,
+      default : null
+    },
+    benchinfo_address: {
+      type: String,
+      default : null
+    },
+  }],
+  
 },
 {
   versionKey : false
