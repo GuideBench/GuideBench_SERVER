@@ -3,7 +3,6 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const html = require('./public/index.html')
 
 const indexRouter = require('./src/routes/index')
 const connect = require('./config/mongoose') // config 폴더의 몽구스 가져오기!
@@ -26,7 +25,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/*', function(req, res){
-  res.sendFile(path.join(__dirname, html))
+  res.sendFile(path.join(__dirname, './public/index.html'))
 })
 app.use('/', indexRouter)
 
