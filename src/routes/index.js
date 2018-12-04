@@ -1,15 +1,3 @@
-// before
-//
-// const express = require('express')
-//
-// const router = express.Router()
-//
-// /* GET home page. */
-// router.get('/', (req, res) => {
-//   res.send('hi')
-// })
-//
-// module.exports = router
 
 // ---------------------------------------
 // after
@@ -23,7 +11,6 @@ const { Router } = require('express')
 const user = require('./user')
 const event = require('./event')
 const qna = require('./qna')
-
 
 const router = Router()
 

@@ -15,13 +15,18 @@ const qnaSchema = new Schema({
     type: String,
     required: true,
   },
+  // question_date: {
+  //   type: Date,
+  //   default: Date.now
+  // },
   answer_content : {
     type : String,
     default : null
   },
-},{
+},
+ {
   versionKey : false
-})
+ })
 
 
 

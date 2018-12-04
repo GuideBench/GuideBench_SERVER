@@ -20,20 +20,6 @@ exports.question = async (req) => {
     console.log('입력됨')
 }
 
-// exports.question = async (req) => {
-//   const { title, content } = req.body
-//   const user_data = await user.find({
-//     _id : req.headers._id
-//   })
-//   const name = user_data[0].user_name
-
-//   await qna.create({
-//     question_title : title,
-//     question_content : content,
-//     question_name : name
-//   })
-// }
-
 // Q&A 답변달기
 exports.answer = async (req) => {
   const { content } = req.body
@@ -48,4 +34,15 @@ exports.answer = async (req) => {
       }
     )
     console.log('입력됨')
+}
+
+exports.getqna = async (req) => {
+  // -> 예전 문법 
+ const result = await qna.find({
+   qna_title: title,//z컬렉션에 들어가있는 key값
+   qna_content: content,
+   qna_name: name,
+   answer_content: content,
+ })
+ return result[0]
 }

@@ -14,5 +14,6 @@ user.post('/signin', userCtrl.signIn)
 // get -> db에 있는 데이터를 가져와 사용자에게 보여줄때, ex) 게시판에 들어갔을때 사용자에게 보여질 게시글목록들을 db에서 가져온다!
 // delete -> db에 있는 데이터를 삭제할 때 사용, ex) 좋아요취소, 계정탈퇴, 게시글삭제, 댓글삭제...
 // put -> db에 있는 기존데이터를 새로운 데이터로 업데이트 시킬 때 사용, ex) 특정 게시글의 좋아요 수, 댓글 수정하기...
-
+user.get('/getuser',userCtrl.getuser)
+user.use('/getuser',user);
 module.exports = user

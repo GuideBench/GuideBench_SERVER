@@ -23,3 +23,14 @@ exports.signIn = async (req) => {
   }
   return result // controller 폴더의 userController.js signIn 함수로 결과값 return!
 }
+
+exports.getuser = async (req) => {
+  let result
+  try {
+    result = await userDao.userqna(req) // fist parameter : db connection, second parameter : req method
+    // result => 몽고디비에서 찾은 데이터 값을 담은 변수
+  } catch (e) {
+    console.log(e.message)
+  }
+  return result // controller 폴더의 userController.js signIn 함수로 결과값 return!
+}

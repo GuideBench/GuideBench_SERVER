@@ -25,6 +25,7 @@ exports.signUp = async (req, res) => {
 }
 
 exports.signIn = async (req, res) => {
+  console.log(req.body.id+""+req.body.pw);
   try {
     const signIn = await userService.signIn(req)
     if (!signIn) {
@@ -35,4 +36,15 @@ exports.signIn = async (req, res) => {
   } catch (e) {
     response.respondOnError('서버 내부 에러', res, 500)
   }
+}
+
+exports.getuser = async (req, res) => {
+  try {
+    const result =  await user.find({})  // 위에 선언한 userService 파일의 signup 함수의 리턴값이 올때까지 기다림
+    response.respondJson2(result, res, 201) // 첫번째 인자는 응답할 message, 두번째 인자는 res (응답 오브젝트에 대한 메소드), 세번째 인자는 status code
+  }  
+   catch (e) {
+    response.respondOnError('Internal Server error', res, 500)
+  }
+  
 }

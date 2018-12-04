@@ -45,3 +45,13 @@ exports.signIn = async (req) => {
   })
   return result[0]
 }
+
+exports.getuser = async (req) => {
+  // -> 예전 문법 
+ const result = await user.find({
+    user_id: id,
+    user_pw: pw,
+    user_name: name,
+ })
+ return result[0]
+}
