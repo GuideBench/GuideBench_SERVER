@@ -11,6 +11,7 @@ const { Router } = require('express')
 const user = require('./user')
 const event = require('./event')
 const qna = require('./qna')
+const bench = require('./bench')
 
 const router = Router()
 
@@ -19,4 +20,5 @@ const router = Router()
 router.use('/user', user) // localhost:3000/user로 접속하면 이쪽으로 분기처리 됩니다.
 router.use('/event', event)
 router.use('/qna', qna)
+router.use('/bench', bench)
 module.exports = router // 현재 js파일을 다른 파일에서도 사용할 수 있도록 export

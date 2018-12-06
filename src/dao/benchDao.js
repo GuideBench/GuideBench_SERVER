@@ -33,3 +33,9 @@ exports.postInfo = async (req) => {
     console.log('success')
 }
 
+exports.getInfo = async (req) => {
+  const bench_id = req.params.bench_id
+  
+    const result = await bench.find(
+{_id : bench_id})
+  }
