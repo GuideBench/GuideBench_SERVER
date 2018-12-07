@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5af3055-1c77-4dfb-a464-86eab337f825" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/bench.js" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/bench.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/benchController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/benchController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/qnaController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/qnaController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/benchDao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/benchDao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/qnaDao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/qnaDao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/userDao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/userDao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/bench.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/bench.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/qna.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/qna.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/benchService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/benchService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/eventService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/eventService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/qnaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/qnaService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/userService.js" afterDir="false" />
-    </list>
+    <list default="true" id="a5af3055-1c77-4dfb-a464-86eab337f825" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -410,12 +392,12 @@
       <workItem from="1542587472728" duration="3948000" />
       <workItem from="1542591775043" duration="6313000" />
       <workItem from="1542610033060" duration="908000" />
-      <workItem from="1544158558659" duration="3162000" />
+      <workItem from="1544158558659" duration="3411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14331000" />
+    <option name="totallyTimeSpent" value="14580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="980" extended-state="6" />
