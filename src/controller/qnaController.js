@@ -7,17 +7,16 @@ const qna = require('../../schemas/qna')
 const qnaService = require('../service/qnaService') // user에 관련된 api의 비즈니스 로직을 처리할 js 파일
 
 
-
 exports.question = async (req, res) => {
   try {
     const { title, content } = req.body
-    if(!title || !content ) {
+    if (!title || !content) {
       response.respondOnError('모두 입력해주세요.', res, 400)
     } 
   
-      await qnaService.question(req) 
+    await qnaService.question(req) 
    
-      response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) 
+    response.respondJson2('질문이 성공적으로 등록되었습니다', res, 201) 
     
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
@@ -27,13 +26,13 @@ exports.question = async (req, res) => {
 exports.answer = async (req, res) => {
   try {
     const { content } = req.body
-    if(!content) {
+    if (!content) {
       response.respondOnError('모두 입력해주세요.', res, 400)
     } 
   
-      await qnaService.answer(req) 
+    await qnaService.answer(req) 
    
-      response.respondJson2('답변이 성공적으로 등록되었습니다', res, 201) 
+    response.respondJson2('답변이 성공적으로 등록되었습니다', res, 201) 
     
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
@@ -42,10 +41,9 @@ exports.answer = async (req, res) => {
 
 exports.getqna = async (req, res) => {
   try {
-    const result =  await qna.find({})  // 위에 선언한 userService 파일의 signup 함수의 리턴값이 올때까지 기다림
-    response.respondJson('successfully get qna ',result, res, 201) // 첫번째 인자는 응답할 message, 두번째 인자는 res (응답 오브젝트에 대한 메소드), 세번째 인자는 status code
-  }  
-   catch (e) {
+    const result = await qnaService.getqna(req)
+    response.respondJson('successfully get qna ', result, res, 200) // 첫번째 인자는 응답할 message, 두번째 인자는 res (응답 오브젝트에 대한 메소드), 세번째 인자는 status code
+  } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
   }
   

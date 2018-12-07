@@ -19,24 +19,24 @@ const benchSchema = new Schema({
     type: String,
     required: true,
   },
-  bench_info :[{
+  bench_info: [{
     benchinfo_category: {
       type: String,
-      default : null
+      default: null,
     },
     benchinfo_name: {
       type: String,
-      default : null
+      default: null,
     },
     benchinfo_address: {
       type: String,
-      default : null
+      default: null,
     },
   }],
-  
+
 },
 {
-  versionKey : false
+  versionKey: false,
 })
 
 module.exports = mongoose.model('bench', benchSchema)

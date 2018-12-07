@@ -21,4 +21,5 @@ router.use('/user', user) // localhost:3000/user로 접속하면 이쪽으로 �
 router.use('/event', event)
 router.use('/qna', qna)
 router.use('/bench', bench)
+
 module.exports = router // 현재 js파일을 다른 파일에서도 사용할 수 있도록 export
