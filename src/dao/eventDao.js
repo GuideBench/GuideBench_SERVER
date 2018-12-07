@@ -15,7 +15,7 @@ exports.event = async (req) => {
   if (!duplicated[0]) {
     await event.create({
       event_title: title,
-      event_content: content
+      event_content: content,
     })
     data = {
       message: '등록성공',
@@ -35,11 +35,6 @@ exports.event = async (req) => {
 //   return result[0]
 //  }
 exports.getevent = async (req) => {
-   // -> 예전 문법 
-  const result = await event.find({
-    event_title: title,//z컬렉션에 들어가있는 key값
-    event_content: content,
-    
-  })
+  const result = await event.find({})
   return result[0]
 }

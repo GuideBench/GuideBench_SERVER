@@ -47,7 +47,7 @@ exports.signIn = async (req) => {
 }
 
 exports.getuser = async (req) => {
-  const id = req.headers._id
+  const id = req.headers.user_id
   const result = await user.find({
     _id: id,
   })

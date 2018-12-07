@@ -9,10 +9,14 @@ const qnaService = require('../service/qnaService') // user에 관련된 api의 
 
 exports.question = async (req, res) => {
   try {
+    const { user_id } = req.headers
     const { title, content } = req.body
+
     if (!title || !content) {
       response.respondOnError('모두 입력해주세요.', res, 400)
-    } 
+    } else if (!user_id) {
+      response.respondOnError('헤더에 user_id를 입력해주세요.', res, 400)
+    }
   
     await qnaService.question(req) 
    
