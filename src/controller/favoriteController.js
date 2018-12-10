@@ -25,7 +25,7 @@ exports.getBookmark = async (req, res) => {
     if (!user_id) {
       response.respondOnError('헤더에 user_id를 입력해주세요.', res, 400)
     } else {
-      const result = await favoriteService.postBookmark(req)
+      const result = await favoriteService.getBookmark(req)
       response.respondJson('즐겨찾기 리스트 성공적!', result, res, 201)
     }
   } catch (e) {
