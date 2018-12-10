@@ -40,8 +40,7 @@ exports.signIn = async (req, res) => {
 
 exports.getuser = async (req, res) => {
   try {
-    const result = await userService.getuser(req)
-   
+    const result = await userService.getuser(req)   
       response.respondJson('successfully get user',result, res, 201) 
   }  
    catch (e) {

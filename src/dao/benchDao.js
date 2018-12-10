@@ -43,3 +43,8 @@ exports.getInfo = async (req) => {
   )
   return result[0]
 }
+
+exports.getAllinfo = async (req) => {
+  const result = await bench.find({})                         
+  return result
+}
