@@ -51,7 +51,6 @@ let resultㄴ
     //  result = await tmp.find( { bench_info : "학"} )
     
     // result = await tmp.bench_info.benchinfo_name
-    console.log("서비스 됨",result)
 
 
 //result = await benchDao.getAllinfo(req) // 싹다 가져오는거

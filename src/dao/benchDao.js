@@ -45,7 +45,6 @@ exports.getInfo = async (req) => {
 }
 
 exports.getAllinfo = async (req) => {
-  const result = await bench.find({})      
-  console.log("dao된다",result)                   
+  const result = await bench.find({})             
   return result
 }
