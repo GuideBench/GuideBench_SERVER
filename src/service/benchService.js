@@ -40,16 +40,16 @@ exports.getInfo = async (req) => {
 }
 
 exports.getAllinfo = async (req) => {
-  //let result = [] // 원본
-let resultㄴ
+  let result = [] // 원본
+  //let result
 
   try {
    // result = await result.find({bench_info : benchinfo_category, benchinfo_name, benchinfo_address})        
-   let tmp = await benchDao.getAllinfo(req)   
+   //let tmp = await benchDao.getAllinfo(req)   
     // result = await tmp.bench_info.benchinfo_name
 
 
-//result = await benchDao.getAllinfo(req) // 싹다 가져오는거
+result = await benchDao.getAllinfo(req) // 싹다 가져오는거
 
 
   //  const tmp = await benchDao.getAllinfo(req) 
