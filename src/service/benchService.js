@@ -44,12 +44,8 @@ exports.getAllinfo = async (req) => {
 let resultㄴ
 
   try {
-
    // result = await result.find({bench_info : benchinfo_category, benchinfo_name, benchinfo_address})        
-   let tmp = await benchDao.getAllinfo(req)
-   
-    //  result = await tmp.find( { bench_info : "학"} )
-    
+   let tmp = await benchDao.getAllinfo(req)   
     // result = await tmp.bench_info.benchinfo_name
 
 
