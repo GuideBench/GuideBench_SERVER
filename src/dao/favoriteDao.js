@@ -1,4 +1,5 @@
 const favorite = require('../../schemas/favorite')
+const event = require('../../schemas/event')
 
 // 이벤트
 exports.postBookmark = async (req) => {
@@ -14,42 +15,60 @@ exports.postBookmark = async (req) => {
   })
   if (!duplicated[0]) {
     if (!event_id) {
-      await favorite.update(
-        { user_id },
-        {
-          $addToSet: {
+        await favorite.create({
+            user_id,
             favorite_info: {
-              benchinfo_id,
+                benchinfo_id,
+            }
+          })
+    } else {
+        await favorite.create({
+            user_id,
+            favorite_event: {
+                event_id,
+            }
+          })
+    }
+  } else {
+    if (!event_id) {
+        await favorite.update(
+          { user_id },
+          {
+            $addToSet: {
+              favorite_info: {
+                benchinfo_id,
+              },
             },
           },
-        },
-      )
-    } else {
-      await favorite.create({
-        event_id,
-      })
-    }
-  } else if (!event_id) {
-    await favorite.update(
-      { user_id },
-      {
-        $addToSet: {
-          favorite_info: {
-            benchinfo_id,
+        )
+      } else {
+        await favorite.update(
+          { user_id },
+          {
+            $addToSet: {
+              favorite_event: {
+                event_id,
+              },
+            },
           },
-        },
-      },
-    )
-  } else {
-    await favorite.update(
-      { user_id },
-      {
-        $addToSet: {
-          favorite_event: {
-            event_id,
-          },
-        },
-      },
-    )
-  }
+        )
+      }
+  } 
 }
+
+exports.getBookmark = async (req) => {
+    const { user_id }= req.headers
+    const result = await favorite.find({
+        user_id,
+    })
+    return result
+  }
+  
+  exports.getEventList = async (event_id) => {
+   
+    const result = await event.find({
+        _id: event_id,
+    })
+    console.log('11111', result)
+    return result[0]
+  }
