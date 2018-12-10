@@ -1,18 +1,27 @@
 const mongoose = require('mongoose')
-//이벤트랑 맛집또는 시장 
+// 이벤트랑 맛집또는 시장 
 
 const { Schema } = mongoose
 
 const favoriteSchema = new Schema({
+  user_id: {
+    type: String,
+    required: true,
+  },
   favorite_event: [{
-    event_title: {
+    event_id: {
       type: String,
-      required: true,
+      default: null,
     },
-    event_content: {
+  }],
+  favorite_info: [{
+    benchinfo_id: {
       type: String,
-      required: true,
-    }
-  }]
+      default: null,
+    },
+  }],
+},
+{
+  versionKey: false,
 })
 module.exports = mongoose.model('favorite', favoriteSchema)

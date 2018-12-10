@@ -13,7 +13,7 @@ exports.question = async (req) => {
   const name = user_data[0].user_name
 
   await qna.create({
-    question_title: title,//get할때는 왼쪽 post할때는 오른쪽 key : value
+    question_title: title, // get할때는 왼쪽 post할때는 오른쪽 key : value
     question_content: content,
     question_name: name,
   })
