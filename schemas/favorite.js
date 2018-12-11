@@ -13,9 +13,29 @@ const favoriteSchema = new Schema({
       type: String,
       default: null,
     },
+    event_title: {
+      type: String,
+      default: null,
+    },
+    event_content: {
+      type: String,
+      default: null,
+    },
   }],
   favorite_info: [{
     benchinfo_id: {
+      type: String,
+      default: null,
+    },
+    benchinfo_category: {
+      type: String,
+      default: null,
+    },
+    benchinfo_name: {
+      type: String,
+      default: null,
+    },
+    benchinfo_address: {
       type: String,
       default: null,
     },

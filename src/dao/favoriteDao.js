@@ -1,55 +1,59 @@
 const favorite = require('../../schemas/favorite')
+const event = require('../../schemas/event')
+const bench = require('../../schemas/bench')
 
-// 이벤트
+// 즐겨찾기 등록하기
 exports.postBookmark = async (req) => {
-  // const id = req.body.id // req.body는 클라이언트(사용자)가 입력한 데이터를 받아오는 곳 console.log(req.body)찍어보면 클라이언트쪽에서 어떤 데이터를 보냈는지 콘솔로 확인할 수 있어요!
-  // const pw = req.body.pw // -> 예전 문법
-  // es6 문법
   const { event_id, benchinfo_id } = req.body
   const { user_id } = req.headers
-  // const { id, pw } = req.body -> 실제 타이핑 수를 줄여주는 문법으로 req.body 하위에 있는 id, pw를 가져오는 동시에 id,pw를 바로 변수명으로 사용가능
-  // // async await은 말로 설명해드릴게욤
-  const duplicated = await favorite.find({
-    user_id,
-  })
-  if (!duplicated[0]) {
-    if (!event_id) {
-      await favorite.update(
-        { user_id },
-        {
-          $addToSet: {
-            favorite_info: {
-              benchinfo_id,
-            },
-          },
-        },
-      )
-    } else {
-      await favorite.create({
-        event_id,
-      })
-    }
-  } else if (!event_id) {
-    await favorite.update(
-      { user_id },
-      {
-        $addToSet: {
-          favorite_info: {
-            benchinfo_id,
-          },
-        },
-      },
-    )
-  } else {
-    await favorite.update(
+
+  if (!benchinfo_id) {
+    const data = await event.findOne({
+      _id: event_id,
+    })
+    await favorite.findOneAndUpdate(
       { user_id },
       {
         $addToSet: {
           favorite_event: {
             event_id,
+            event_title: data.event_title,
+            event_content: data.event_content,
           },
         },
       },
+      { upsert: true },
+    )
+    // upsert가 등록하기 전에 해당 유저 정보로 된 데이터가 있는지 검색 먼저하고 없으면 생성하고 있으면 기존 데이터에다가 추가하는거야!
+  } else {
+    const data = await bench.findOne({
+      bench_info: {
+        $elemMatch: {
+          _id: benchinfo_id,
+        },
+      },
+    },
+    {
+      _id: 0,
+      bench_info: {
+        $elemMatch: {
+          _id: benchinfo_id,
+        },
+      },
+    })
+    await favorite.findOneAndUpdate(
+      { user_id },
+      {
+        $addToSet: {
+          favorite_info: {
+            benchinfo_id,
+            benchinfo_category: data.bench_info[0].benchinfo_category,
+            benchinfo_name: data.bench_info[0].benchinfo_name,
+            benchinfo_address: data.bench_info[0].benchinfo_address,
+          },
+        },
+      },
+      { upsert: true },
     )
   }
 }
