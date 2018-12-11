@@ -40,12 +40,19 @@ exports.getInfo = async (req) => {
 }
 
 exports.getAllinfo = async (req) => {
-  let resultㄴ
+  let result
   try {   
     result = await benchDao.getAllinfo(req)
- 
-//result = await benchDao.getAllinfo(req) // 싹다 가져오는거
+  } catch (e) {
+    console.log(e.message)
+  }
+  return result 
+}
 
+exports.getBenchDetail = async (req) => {
+  let result
+  try {   
+    result = await benchDao.getBenchDetail(req)
   } catch (e) {
     console.log(e.message)
   }
