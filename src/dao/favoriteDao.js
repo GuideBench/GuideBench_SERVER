@@ -57,3 +57,20 @@ exports.postBookmark = async (req) => {
     )
   }
 }
+
+exports.getBookmark = async (req) => {
+  const { user_id } = req.headers
+  const result = await favorite.find({
+    user_id,
+  })
+  return result
+}
+  
+exports.getEventList = async (event_id) => {
+   
+  const result = await event.find({
+    _id: event_id,
+  })
+  console.log('11111', result)
+  return result[0]
+}

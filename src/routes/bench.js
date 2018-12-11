@@ -9,7 +9,7 @@ bench.post('/', benchCtrl.postBench)
 bench.post('/:bench_id/info', benchCtrl.postInfo)// 벤치의 맛집,시장 추가하기
 
 bench.get('/:bench_id/getInfo', benchCtrl.getInfo)
-
+bench.get('/getAllinfo', benchCtrl.getAllinfo)
 
 // bench.use('/postBench',bench)
 
