@@ -40,31 +40,12 @@ exports.getInfo = async (req) => {
 }
 
 exports.getAllinfo = async (req) => {
-  let result = [] // 원본
-  //let result
+  let resultㄴ
+  try {   
+    result = await benchDao.getAllinfo(req)
+ 
+//result = await benchDao.getAllinfo(req) // 싹다 가져오는거
 
-  try {
-   // result = await result.find({bench_info : benchinfo_category, benchinfo_name, benchinfo_address})        
-   //let tmp = await benchDao.getAllinfo(req)   
-    // result = await tmp.bench_info.benchinfo_name
-
-
-result = await benchDao.getAllinfo(req) // 싹다 가져오는거
-
-
-  //  const tmp = await benchDao.getAllinfo(req) 
-  //   console.log('123123', tmp )  
-  //   for(const i in tmp){
-  //     for(const j in tmp[i].bench_info){
-  //       console.log(tmp[i].bench_info[j])
-  //     }
-  //   }
-    // for(const i in tmp){
-    //   for(const j in tmp[i].bench_info){
-    //     console.log(tmp[i].bench_info)
-    //     result.push(tmp[i].bench_info[j])
-    //   }
-    // }
   } catch (e) {
     console.log(e.message)
   }

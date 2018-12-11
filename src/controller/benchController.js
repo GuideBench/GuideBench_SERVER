@@ -54,6 +54,7 @@ exports.getAllinfo = async (req, res) => {
   try {
     const result = await benchService.getAllinfo(req)
     response.respondJson('successfully get all bench info', result, res, 200) // 첫번째 인자는 응답할 message, 두번째 인자는 res (응답 오브젝트에 대한 메소드), 세번째 인자는 status code
+    console.log("컨트롤러꺼",result) 
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)
   }

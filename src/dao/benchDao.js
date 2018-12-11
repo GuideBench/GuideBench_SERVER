@@ -45,6 +45,32 @@ exports.getInfo = async (req) => {
 }
 
 exports.getAllinfo = async (req) => {
-  const result = await bench.find({})             
+  // const result = await bench.find({})    기존
+  
+  
+  const result = await bench.aggregate([
+    { "$project": {  
+    // "bench_name": 1,  // 하면 bench_name도 다 같이 뜸
+      "bench_info": { 
+       "$map": { 
+        "input": "$bench_info", 
+        "as": "m", 
+        "in": { 
+         "benchinfo_category": "$$m.benchinfo_category", 
+         "benchinfo_name": "$$m.benchinfo_name", 
+         "benchinfo_address": "$$m.benchinfo_address"
+        } 
+       } 
+      } 
+     }} 
+  ])
+  console.log("dao 결과", result)     
   return result
 }
+
+// 맛집 가진 벤치를 전부 출력
+// const result = await bench.find({
+//   "bench_info" : { $elemMatch : {"benchinfo_category" : "맛집" }}
+// })
+// console.log("dao 결과", result)    
+
