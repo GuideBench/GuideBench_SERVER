@@ -5,6 +5,6 @@ const bookmarkCtrl = require('../controller/favoriteController')
 const favorite = Router()
 
 favorite.post('/', bookmarkCtrl.postBookmark)
-favorite.get('/', bookmarkCtrl.getBookmark)
+favorite.get('/event', bookmarkCtrl.getEventBookmark)
 
 module.exports = favorite

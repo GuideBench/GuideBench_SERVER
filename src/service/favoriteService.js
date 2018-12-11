@@ -9,18 +9,12 @@ exports.postBookmark = async (req) => {
   }
 }
 
-exports.getBookmark = async (req) => {
-  let favorite_event = []
+exports.getEventBookmark = async (req) => {
+  let result
   try {
-    const result = await favoriteDao.getBookmark(req) // fist parameter : db connection, second parameter : req method
-    console.log(result)
-    if(result.favorite_event){
-      for(const i in result.favorite_event){
-       const event = await favoriteDao.getEventList(result.favorite_event[i].event_id)
-       favorite_event[i].push(event)
-      }
-    }
+    result = await favoriteDao.getEventBookmark(req) // fist parameter : db connection, second parameter : req method
   } catch (e) {
     console.log(e.message)
   }
+  return result
 }

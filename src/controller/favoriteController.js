@@ -18,15 +18,15 @@ exports.postBookmark = async (req, res) => {
   }
 }
 
-exports.getBookmark = async (req, res) => {
+exports.getEventBookmark = async (req, res) => {
   try {
     const { user_id } = req.headers
 
     if (!user_id) {
       response.respondOnError('헤더에 user_id를 입력해주세요.', res, 400)
     } else {
-      const result = await favoriteService.getBookmark(req)
-      response.respondJson('즐겨찾기 리스트 성공적!', result, res, 201)
+      const result = await favoriteService.getEventBookmark(req)
+      response.respondJson('event 즐겨찾기 리스트 성공적!', result, res, 201)
     }
   } catch (e) {
     response.respondOnError('Internal Server error', res, 500)

@@ -58,19 +58,14 @@ exports.postBookmark = async (req) => {
   }
 }
 
-exports.getBookmark = async (req) => {
+// event 즐겨찾기 가져오기
+exports.getEventBookmark = async (req) => {
   const { user_id } = req.headers
   const result = await favorite.find({
     user_id,
+  }, {
+    _id: 0,
+    favorite_event: 1,
   })
-  return result
-}
-  
-exports.getEventList = async (event_id) => {
-   
-  const result = await event.find({
-    _id: event_id,
-  })
-  console.log('11111', result)
-  return result[0]
+  return result[0].favorite_event
 }
