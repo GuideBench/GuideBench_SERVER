@@ -23,7 +23,7 @@ exports.question = async (req) => {
 // Q&A 답변달기
 exports.answer = async (req) => {
   const { content } = req.body
-  const qeustion_idx = req.params.question_idx // question 의 유니크한 id 값
+  const qeustion_idx = req.question_idx // question 의 유니크한 id 값
 
   await qna.update(
     { _id: qeustion_idx },
